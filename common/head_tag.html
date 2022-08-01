@@ -92,7 +92,22 @@ function parseFieldOptions (component, name) {
         } else if (field.link.type === 'userField') {
             var siteUserField = siteUserFields.filterBy('name', field.link.value)[0]
             if (siteUserField) {
-                Ember.set(field, 'href', base + (userFields[siteUserField.get('id')] || ''))
+                var path = (userFields[siteUserField.get('id')] || '')
+                if (path !== '') {
+                    switch(field.name) {
+                        case 'Instagram':
+                        case 'Twitter':
+                            if(path.indexOf('@') == 0) path = path.substring(1)
+                            break
+                        case 'Medium':
+                            if(path.length > 0 && !/^https?:\/\//i.test(path) && path.indexOf('@') != 0) path = '@' + path
+                            break
+                    }
+                    Ember.set(field, 'href', (/^https?:\/\//i.test(path) ? '' : (base !== '' ? base : 'https://')) + path)
+                }
+                else {
+                    return null
+                }
             } else {
                 return null
             }
