@@ -25,7 +25,7 @@
     }
 }
 
-.primary-textual h3 > .ember-view:not(:first-child) {
+.primary-textual h3 > span:not(:first-child) {
     margin-left: 10px;
 }
 
@@ -43,8 +43,5 @@
     &.no-bg .card-content {
         padding-top: 12px;
         margin-top: 19px;
-    }
-    span.ember-view {
-        position: relative !important;
     }
 }
