@@ -3,15 +3,6 @@ var fieldOptions = {}
 
 fieldOptions.iconicUserFields = [
     {
-        name: 'Member Profile',
-        icon: 'user',
-        link: {
-            type: 'thisGetUser',
-            value: 'username',
-            base: 'https://namati.org/network/member/'
-        }
-    },
-    {
         name: 'Website',
         icon: 'globe',
         link: {
@@ -41,6 +32,30 @@ fieldOptions.iconicUserFields = [
         link: {
             type: 'userField',
             value: 'LinkedIn (URL)'
+        }
+    },
+    {
+        name: 'Instagram',
+        icon: 'fab-instagram',
+        link: {
+            type: 'userField',
+            value: 'Instagram (URL)'
+        }
+    },
+    {
+        name: 'GitHub',
+        icon: 'fab-github',
+        link: {
+            type: 'userField',
+            value: 'GitHub (URL)'
+        }
+    },
+    {
+        name: 'Medium',
+        icon: 'fab-medium-m',
+        link: {
+            type: 'userField',
+            value: 'Medium (URL)'
         }
     }
 ]
@@ -120,7 +135,7 @@ api.registerConnectorClass('user-card-location-and-website', 'user-card-profile-
 })
 
 api.modifyClass('component:user-card-contents', {
-  hasLocationOrWebsite: true
+    hasLocationOrWebsite: true
 })
 </script>
 
